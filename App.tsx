@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Home from './pages/Home';
+import WorkoutA from "./pages/WorkoutA";
+import WorkoutB from "./pages/WorkoutB";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <NavigationContainer>
+            <Stack.Navigator screenOptions={{
+                navigationBarColor: "#238de9",
+                statusBarColor: "#238de9",
+                headerTitleAlign: "center",
+                headerStyle: {
+                    backgroundColor: "#373737"
+                }
+            }}>
+                <Stack.Screen name="Home" component={Home} options={{
+                    headerTitle: "Gym App"
+                }} />
+                <Stack.Screen name="WorkoutA" component={WorkoutA} options={{
+                    headerTitle: "Workout A"
+                }} />
+                <Stack.Screen name="WorkoutB" component={WorkoutB} options={{
+                    headerTitle: "Workout B"
+                }} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
