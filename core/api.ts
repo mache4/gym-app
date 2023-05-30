@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ExerciseType } from "./types";
 
-const API = axios.create({ baseURL: "http://192.168.0.4:8080" });
+const API = axios.create({ baseURL: "https://gym-app-server.vercel.app" });
 
 // export const getExercisesBasedOnPlan = (plan: string) => API.get(`/exercises/${plan}`);
 export const getExercises = () => API.get("/exercises");
